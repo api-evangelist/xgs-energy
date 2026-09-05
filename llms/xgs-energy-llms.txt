@@ -1,0 +1,73 @@
+# XGS Energy
+
+> XGS Energy is a next-generation geothermal power developer headquartered in Palo Alto, California.
+> Its Thermal Reach Enhancement (TRE) technology packs a thermally conductive material around a
+> closed-loop wellbore, drawing heat from the surrounding rock without depending on natural
+> permeability or produced water. XGS Energy is an energy infrastructure developer, not a software
+> vendor: it publishes no developer program, no product API, no SDKs and no API documentation.
+
+Generated: 2026-09-04
+Method: generated
+Source: apis.yml + artifacts in https://github.com/api-evangelist/xgs-energy
+Note: This file is written by API Evangelist. XGS Energy does not serve an llms.txt
+      (https://www.xgsenergy.com/llms.txt returned 404 on 2026-09-04).
+
+## What is callable
+
+The only machine-readable interface XGS Energy exposes is the WordPress REST content API behind its
+corporate website. It is anonymous, read-only, undocumented by the company, and incidental to the
+website rather than an offered product. Treat it as unstable.
+
+Base URL: https://www.xgsenergy.com/wp-json
+Self-describing route index: https://www.xgsenergy.com/wp-json/
+Authentication: none required for anything listed below.
+
+- Posts API — 108 published news and insight articles: /wp/v2/posts, /wp/v2/posts/{id}
+- Pages API — 8 static site pages: /wp/v2/pages, /wp/v2/pages/{id}
+- Media API — 182 attachments with size variants: /wp/v2/media, /wp/v2/media/{id}
+- Search API — 127 searchable objects across posts and pages: /wp/v2/search
+- Categories API — 4 terms: /wp/v2/categories, /wp/v2/categories/{id}
+- Tags API — 1 term: /wp/v2/tags, /wp/v2/tags/{id}
+- Discovery API — route index, content types, taxonomies, statuses: /, /wp/v2, /wp/v2/types, /wp/v2/taxonomies, /wp/v2/statuses
+- oEmbed API — oEmbed 1.0 rich metadata for any xgsenergy.com URL: /oembed/1.0/embed?url=...
+
+## How it behaves
+
+- Pagination: page + per_page (1-100, default 10), plus X-WP-Total, X-WP-TotalPages and an RFC 8288 Link header.
+- Field selection: _fields for sparse fieldsets, _embed to inline linked resources, context=view|embed.
+- Errors: the WordPress {code, message, data.status} envelope. Not RFC 9457 problem+json.
+- Rate limits: none published. No X-RateLimit-*, RateLimit-* or Retry-After header is returned.
+- Caching: cache-control max-age=600, must-revalidate. WP Engine origin behind Cloudflare.
+- Writes: none available anonymously. There is nothing to make idempotent and nothing to reverse.
+
+## What does not exist
+
+- No OpenAPI, AsyncAPI, GraphQL SDL or Postman collection published by XGS Energy.
+- No MCP server, no A2A agent card. /.well-known/agent-card.json and /.well-known/agent.json both 404.
+- No /.well-known/security.txt, /.well-known/api-catalog, or OAuth/OIDC discovery documents.
+- No SDKs in any package registry and no GitHub organization.
+- No pricing, plans, signup, sandbox, status page, changelog or deprecation policy.
+- No operational, well, plant or generation data is exposed by any interface.
+
+## Not exposed on purpose
+
+/wp-json/wp/v2/users answers anonymously with author records. It is real, but it returns personal
+data, so it is documented structurally in this repository and is deliberately excluded from every
+agent skill and MCP tool here. Do not package it.
+
+## Company links
+
+- Website: https://www.xgsenergy.com/
+- Team: https://www.xgsenergy.com/team/
+- News and insights: https://www.xgsenergy.com/news-and-insights/
+- RSS: https://www.xgsenergy.com/news-and-insights/feed/
+- Podcast: https://www.xgsenergy.com/podcast/
+- Careers: https://www.xgsenergy.com/careers/
+- Contact: https://www.xgsenergy.com/contact/
+- Terms of Use: https://www.xgsenergy.com/terms-of-use/
+- Privacy Policy: https://www.xgsenergy.com/privacy-policy/
+
+## About this profile
+
+This is an independent third-party profile maintained by API Evangelist. It is not operated by or
+affiliated with XGS Energy. Corrections and removal are free: https://apievangelist.com

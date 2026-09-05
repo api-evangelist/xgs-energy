@@ -1,0 +1,53 @@
+generated: '2026-09-04'
+method: probed
+source: live error responses observed on https://www.xgsenergy.com/wp-json/ 2026-09-04, cross-checked against
+  openapi/
+format: wordpress-rest
+rfc9457: false
+media_type: application/json
+envelope:
+  code: machine-readable error slug
+  message: human-readable message
+  data.status: HTTP status code
+  data.params: per-parameter messages on validation failures
+  data.details: per-parameter structured detail
+errors:
+- code: rest_invalid_param
+  status: 400
+  title: Invalid parameter
+  observed: GET /wp-json/wp/v2/posts?per_page=999
+  message: 'Invalid parameter(s): per_page'
+  remediation: Send a value inside the range the route index declares; per_page must be between 1 and 100 inclusive.
+- code: rest_forbidden
+  status: 401
+  title: Not allowed
+  observed: GET /wp-json/wp/v2/settings
+  message: Sorry, you are not allowed to do that.
+  remediation: Anonymous callers cannot reach this route. It is an administrative surface and is out of scope
+    for the public API.
+- code: rest_cannot_view
+  status: 401
+  title: Cannot view resource
+  observed: GET /wp-json/wp/v2/menus
+  message: Sorry, you are not allowed to view menus.
+  remediation: Authenticate as a site administrator, or use the public content routes instead.
+- code: rest_post_invalid_id
+  status: 404
+  title: Invalid post ID
+  observed: GET /wp-json/wp/v2/posts/999999
+  message: Invalid post ID.
+  remediation: Resolve the id from a collection listing or from /wp/v2/search before requesting the item.
+- code: uae_rest_not_allowed
+  status: 403
+  title: Plugin route not authorized
+  observed: GET /wp-json/hfe/v1/mcp-abilities
+  message: Sorry, you are not authorized to perform this action.
+  remediation: Plugin-owned route, administrator only. Not part of the public surface.
+- code: wpcf7_forbidden
+  status: 403
+  title: Contact forms not accessible
+  observed: GET /wp-json/contact-form-7/v1/contact-forms
+  message: You are not allowed to access contact forms.
+  remediation: Use the human contact page at https://www.xgsenergy.com/contact/.
+note: Error slugs are WordPress core / plugin codes, not an XGS Energy error registry. XGS Energy publishes
+  no error reference.

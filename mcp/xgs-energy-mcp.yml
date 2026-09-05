@@ -1,0 +1,120 @@
+generated: '2026-09-04'
+method: derived
+status: candidate
+source: openapi/ (17 operations across 8 derived specs)
+description: 'XGS Energy operates no MCP server. Searched on 2026-09-04: the site itself, https://www.xgsenergy.com/mcp
+  (404), /.well-known/mcp.json (404), the npm and PyPI registries, and the route index. The tool list below
+  is a CANDIDATE derived one-to-one from the OpenAPI operations this repository harvested — what an MCP server
+  over this surface would expose, not something XGS Energy publishes. Every tool is read-only because the whole
+  anonymous surface is read-only.'
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: derived
+  note: 'Nobody ships a server. Worth recording: the site does run the WordPress Abilities API (/wp-json/wp-abilities/v1/abilities)
+    and an Elementor Header-Footer plugin MCP route (/wp-json/hfe/v1/mcp-abilities). Both are MCP-adjacent
+    WordPress plumbing and both refused anonymous access — 401 rest_forbidden and 403 uae_rest_not_allowed
+    respectively on 2026-09-04. They are administrator surfaces, not a published agent endpoint, so mode stays
+    none.'
+server:
+  name: xgs-energy
+  transport: http
+  url: null
+  published: false
+auth:
+  required: false
+  note: All listed candidate tools work anonymously over plain HTTPS.
+tools:
+- name: list_posts
+  description: List XGS Energy news and insight posts
+  category: content
+  source_operation: openapi/xgs-energy-posts-api-openapi.yml#listPosts
+  read_only: true
+- name: get_post
+  description: Retrieve one XGS Energy post by id
+  category: content
+  source_operation: openapi/xgs-energy-posts-api-openapi.yml#getPost
+  read_only: true
+- name: list_pages
+  description: List the static pages of xgsenergy.com
+  category: content
+  source_operation: openapi/xgs-energy-pages-api-openapi.yml#listPages
+  read_only: true
+- name: get_page
+  description: Retrieve one page by id
+  category: content
+  source_operation: openapi/xgs-energy-pages-api-openapi.yml#getPage
+  read_only: true
+- name: list_media
+  description: List media library attachments
+  category: media
+  source_operation: openapi/xgs-energy-media-api-openapi.yml#listMedia
+  read_only: true
+- name: get_media_item
+  description: Retrieve one media attachment by id
+  category: media
+  source_operation: openapi/xgs-energy-media-api-openapi.yml#getMediaItem
+  read_only: true
+- name: search_site
+  description: Search across XGS Energy posts and pages
+  category: search
+  source_operation: openapi/xgs-energy-search-api-openapi.yml#search
+  read_only: true
+- name: list_categories
+  description: List post categories
+  category: taxonomy
+  source_operation: openapi/xgs-energy-categories-api-openapi.yml#listCategories
+  read_only: true
+- name: get_category
+  description: Retrieve one category by id
+  category: taxonomy
+  source_operation: openapi/xgs-energy-categories-api-openapi.yml#getCategory
+  read_only: true
+- name: list_tags
+  description: List post tags
+  category: taxonomy
+  source_operation: openapi/xgs-energy-tags-api-openapi.yml#listTags
+  read_only: true
+- name: get_tag
+  description: Retrieve one tag by id
+  category: taxonomy
+  source_operation: openapi/xgs-energy-tags-api-openapi.yml#getTag
+  read_only: true
+- name: get_route_index
+  description: Retrieve the self-describing route index
+  category: discovery
+  source_operation: openapi/xgs-energy-discovery-api-openapi.yml#getRouteIndex
+  read_only: true
+- name: get_namespace_index
+  description: Retrieve the wp/v2 namespace index
+  category: discovery
+  source_operation: openapi/xgs-energy-discovery-api-openapi.yml#getCoreNamespaceIndex
+  read_only: true
+- name: list_content_types
+  description: List registered content types
+  category: discovery
+  source_operation: openapi/xgs-energy-discovery-api-openapi.yml#listContentTypes
+  read_only: true
+- name: list_taxonomies
+  description: List registered taxonomies
+  category: discovery
+  source_operation: openapi/xgs-energy-discovery-api-openapi.yml#listTaxonomies
+  read_only: true
+- name: list_statuses
+  description: List publication statuses
+  category: discovery
+  source_operation: openapi/xgs-energy-discovery-api-openapi.yml#listStatuses
+  read_only: true
+- name: get_oembed
+  description: Get oEmbed metadata for an xgsenergy.com URL
+  category: metadata
+  source_operation: openapi/xgs-energy-oembed-api-openapi.yml#getOEmbed
+  read_only: true
+excluded:
+- surface: /wp-json/wp/v2/users
+  reason: Returns personal data (author display names and archive URLs). Deliberately excluded from the tool
+    set per the enrichment PII guardrail — the exposure is documented in data-model/, the capability is not
+    packaged.

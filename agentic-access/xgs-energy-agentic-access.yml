@@ -1,0 +1,186 @@
+generated: '2026-09-04'
+method: generated
+source: openapi/ — classification of every documented operation
+description: 'Recommended x-agentic-access contract for the XGS Energy public surface. Every documented operation
+  is an anonymous read of public website content: no writes, no cost, no consent boundary, no reversibility
+  question. This is a recommendation by API Evangelist, not a contract XGS Energy publishes.'
+posture:
+  overall: safe-read-only
+  writes: 0
+  reads: 17
+  human_in_the_loop_required: false
+  spend_risk: none
+  data_sensitivity: public
+  caveat: One route on the host, /wp-json/wp/v2/users, returns personal data and is deliberately outside this
+    contract and outside every tool and skill in this repository.
+operations:
+- operation: listPosts
+  path: /wp/v2/posts
+  spec: openapi/xgs-energy-posts-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getPost
+  path: /wp/v2/posts/{id}
+  spec: openapi/xgs-energy-posts-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listPages
+  path: /wp/v2/pages
+  spec: openapi/xgs-energy-pages-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getPage
+  path: /wp/v2/pages/{id}
+  spec: openapi/xgs-energy-pages-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listMedia
+  path: /wp/v2/media
+  spec: openapi/xgs-energy-media-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getMediaItem
+  path: /wp/v2/media/{id}
+  spec: openapi/xgs-energy-media-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: search
+  path: /wp/v2/search
+  spec: openapi/xgs-energy-search-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listCategories
+  path: /wp/v2/categories
+  spec: openapi/xgs-energy-categories-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getCategory
+  path: /wp/v2/categories/{id}
+  spec: openapi/xgs-energy-categories-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listTags
+  path: /wp/v2/tags
+  spec: openapi/xgs-energy-tags-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getTag
+  path: /wp/v2/tags/{id}
+  spec: openapi/xgs-energy-tags-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getRouteIndex
+  path: /
+  spec: openapi/xgs-energy-discovery-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getCoreNamespaceIndex
+  path: /wp/v2
+  spec: openapi/xgs-energy-discovery-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listContentTypes
+  path: /wp/v2/types
+  spec: openapi/xgs-energy-discovery-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listTaxonomies
+  path: /wp/v2/taxonomies
+  spec: openapi/xgs-energy-discovery-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: listStatuses
+  path: /wp/v2/statuses
+  spec: openapi/xgs-energy-discovery-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.
+- operation: getOEmbed
+  path: /oembed/1.0/embed
+  spec: openapi/xgs-energy-oembed-api-openapi.yml
+  action_class: read
+  consequence: none
+  reversible: na
+  scope: public-content
+  token: none
+  escalation: none
+  note: Anonymous GET over public website content. No state change, no cost, no personal data.

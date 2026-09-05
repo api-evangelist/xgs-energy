@@ -1,0 +1,10 @@
+generated: '2026-09-04'
+method: searched
+source: npm, PyPI, RubyGems, crates.io, NuGet, Maven Central, pkg.go.dev and Packagist searched 2026-09-04;
+  xgsenergy.com site walk; github.com/xgsenergy -> 404, github.com/xgs-energy -> 404
+official_package_count: 0
+packages: []
+note: No first-party SDK, client library or package exists under any XGS Energy name in any public registry,
+  and the company has no GitHub organization. No SDKs pointer is emitted. Generic WordPress REST clients exist
+  on npm and PyPI but are third-party and provider-agnostic, so they are deliberately not listed here as XGS
+  Energy packages.

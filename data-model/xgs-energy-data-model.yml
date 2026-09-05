@@ -1,0 +1,89 @@
+generated: '2026-09-04'
+method: derived
+source: openapi/ + live responses from https://www.xgsenergy.com/wp-json/wp/v2/* observed 2026-09-04
+entities:
+- name: Post
+  rest_base: posts
+  count_observed: 108
+  id: integer
+  description: A dated news or insight article in the XGS Energy news archive.
+- name: Page
+  rest_base: pages
+  count_observed: 8
+  id: integer
+  description: A static site page (Team, News & Insights, Careers, Contact, Terms of Use, Privacy Policy and
+    the home page).
+- name: Media
+  rest_base: media
+  count_observed: 182
+  id: integer
+  description: An uploaded attachment with generated size variants.
+- name: Category
+  rest_base: categories
+  count_observed: 4
+  id: integer
+  description: Hierarchical taxonomy term applied to posts.
+- name: Tag
+  rest_base: tags
+  count_observed: 1
+  id: integer
+  description: Flat taxonomy term applied to posts.
+- name: Author
+  rest_base: users
+  count_observed: 3
+  id: integer
+  description: Public author record. PERSONAL DATA — see personal_data below. Deliberately not registered as
+    an API entry and deliberately excluded from skills/ and mcp/.
+- name: SearchResult
+  rest_base: search
+  count_observed: 127
+  id: integer
+  description: 'Lightweight cross-content projection: id, title, url, type, subtype.'
+relationships:
+- from: Post
+  to: Category
+  kind: has_many
+  via: categories[]
+- from: Post
+  to: Tag
+  kind: has_many
+  via: tags[]
+- from: Post
+  to: Author
+  kind: belongs_to
+  via: author
+- from: Post
+  to: Media
+  kind: has_one
+  via: featured_media
+- from: Page
+  to: Page
+  kind: belongs_to
+  via: parent
+- from: Page
+  to: Author
+  kind: belongs_to
+  via: author
+- from: Media
+  to: Post
+  kind: belongs_to
+  via: post
+- from: Category
+  to: Category
+  kind: belongs_to
+  via: parent
+- from: SearchResult
+  to: Post
+  kind: has_one
+  via: id + subtype
+personal_data:
+  endpoint: /wp-json/wp/v2/users
+  status_observed: 200
+  records_observed: 3
+  fields: display name, author slug, author archive URL, avatar URLs. No email addresses or phone numbers are
+    returned.
+  handling: Documented structurally, never by example. No individual is named anywhere in this repository,
+    no API entry is registered for the collection, and no agent skill or MCP tool is emitted for it — per the
+    enrichment PII guardrail. The exclusion is deliberate, not an oversight.
+note: This is the WordPress content model, not a geothermal domain model. XGS Energy exposes no operational,
+  plant, well or generation data via any API.

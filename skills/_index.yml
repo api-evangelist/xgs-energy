@@ -1,0 +1,51 @@
+generated: '2026-09-04'
+method: generated
+source: openapi/ (8 derived specs, 17 operations) + conventions/ + errors/
+description: Packaged agent skills for the only callable XGS Energy surface — the anonymous WordPress REST
+  content API behind www.xgsenergy.com. Every operationId referenced was verified against the derived OpenAPI
+  documents in this repository; none was invented. XGS Energy publishes no skills or AGENTS.md of its own (searched
+  2026-09-04).
+skills:
+- name: xgs-energy-read-news-archive
+  file: xgs-energy-read-news-archive.md
+  api: xgs-energy:xgs-energy-posts-api
+  operations:
+  - listPosts
+  - getPost
+  - listCategories
+  - getMediaItem
+  summary: Read and page the 108-post news archive, resolving categories and featured images.
+- name: xgs-energy-search-site-content
+  file: xgs-energy-search-site-content.md
+  api: xgs-energy:xgs-energy-search-api
+  operations:
+  - search
+  - getPost
+  - getPage
+  - listContentTypes
+  summary: Search 127 searchable objects and resolve each hit to its full record.
+- name: xgs-energy-inventory-site-structure
+  file: xgs-energy-inventory-site-structure.md
+  api: xgs-energy:xgs-energy-discovery-api
+  operations:
+  - getRouteIndex
+  - listContentTypes
+  - listTaxonomies
+  - listCategories
+  - listTags
+  - listMedia
+  - getOEmbed
+  summary: Inventory the real machine-readable surface from the host's own route index before assuming an API
+    exists.
+excluded:
+- surface: /wp-json/wp/v2/users
+  reason: Returns personal data — author display names, slugs and archive URLs — to anonymous callers. No skill
+    and no MCP tool is emitted for it, per the enrichment PII guardrail. The exposure is recorded structurally
+    in data-model/xgs-energy-data-model.yml with no individual named. This omission is deliberate.
+  routes:
+  - /wp-json/wp/v2/users
+  - /wp-json/wp/v2/users/{id}
+- surface: /wp-json/contact-form-7/v1/contact-forms/{id}/feedback
+  reason: A form-submission write path. It is not documented for third-party use, submitting to it would send
+    mail to a real company, and the collection route itself refuses anonymous reads (403 wpcf7_forbidden).
+    Not packaged.

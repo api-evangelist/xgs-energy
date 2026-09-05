@@ -1,0 +1,382 @@
+# generated: '2026-09-04'
+# method: derived
+# source: https://www.xgsenergy.com/wp-json/ (live route index, probed 2026-09-04)
+openapi: 3.1.0
+info:
+  title: XGS Energy Posts API
+  version: wp/v2
+  description: Public read-only access to XGS Energy news and insight posts.
+  contact:
+    name: XGS Energy
+    url: https://www.xgsenergy.com/contact/
+  x-provenance:
+    generated: '2026-09-04'
+    method: derived
+    source: https://www.xgsenergy.com/wp-json/ (live route index, probed 2026-09-04)
+    note: Derived from the self-describing WordPress REST route index served by XGS Energy at https://www.xgsenergy.com/wp-json/.
+      Parameters, types, defaults and enums are copied from that document; response codes, headers and
+      error codes were observed on live anonymous requests on 2026-09-04. Nothing here is invented. XGS
+      Energy publishes no OpenAPI of its own.
+servers:
+- url: https://www.xgsenergy.com/wp-json
+  description: XGS Energy WordPress REST API (www.xgsenergy.com)
+tags:
+- name: Posts
+paths:
+  /wp/v2/posts:
+    get:
+      operationId: listPosts
+      summary: List news and insight posts
+      description: Anonymous, read-only listing of the XGS Energy news and insights archive. Verified
+        live at 108 published posts on 2026-09-04.
+      tags:
+      - Posts
+      parameters:
+      - name: after
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit response to posts published after a given ISO8601 compliant date.
+      - name: author
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+        description: Limit result set to posts assigned to specific authors.
+      - name: author_exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+        description: Ensure result set excludes posts assigned to specific authors.
+      - name: before
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit response to posts published before a given ISO8601 compliant date.
+      - name: categories
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Limit result set to items with specific terms assigned in the categories taxonomy.
+      - name: categories_exclude
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Limit result set to items except those with specific terms assigned in the categories
+          taxonomy.
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+        description: Ensure result set excludes specific IDs.
+      - name: format
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - standard
+            - aside
+            - chat
+            - gallery
+            - link
+            - image
+            - quote
+            - status
+            - video
+            - audio
+        description: Limit result set to items assigned one or more given formats.
+      - name: ignore_sticky
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+        description: Whether to ignore sticky posts or not.
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+        description: Limit result set to specific IDs.
+      - name: modified_after
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit response to posts modified after a given ISO8601 compliant date.
+      - name: modified_before
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit response to posts modified before a given ISO8601 compliant date.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Offset the result set by a specific number of items.
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+        description: Order sort attribute ascending or descending.
+      - name: orderby
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - author
+          - date
+          - id
+          - include
+          - modified
+          - parent
+          - relevance
+          - slug
+          - include_slugs
+          - title
+          default: date
+        description: Sort collection by post attribute.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: search
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: search_columns
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - post_title
+            - post_content
+            - post_excerpt
+          default: []
+        description: Array of column names to be searched.
+      - name: search_semantics
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - exact
+        description: How to interpret the search input.
+      - name: slug
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Limit result set to posts with one or more specific slugs.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - publish
+            - future
+            - draft
+            - pending
+            - private
+            - trash
+            - auto-draft
+            - inherit
+            - request-pending
+            - request-confirmed
+            - request-failed
+            - request-completed
+            - acf-disabled
+            - any
+          default: publish
+        description: Limit result set to posts assigned one or more statuses.
+      - name: sticky
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Limit result set to items that are sticky.
+      - name: tags
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Limit result set to items with specific terms assigned in the tags taxonomy.
+      - name: tags_exclude
+        in: query
+        required: false
+        schema:
+          type: object
+        description: Limit result set to items except those with specific terms assigned in the tags taxonomy.
+      - name: tax_relation
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - AND
+          - OR
+        description: Limit result set based on relationship between multiple taxonomies.
+      responses:
+        '200':
+          description: A page of records.
+          headers:
+            X-WP-Total:
+              description: Total records matching the query (observed live).
+              schema:
+                type: integer
+            X-WP-TotalPages:
+              description: Total pages at the current per_page (observed live).
+              schema:
+                type: integer
+            Link:
+              description: RFC 8288 pagination links, rel="prev" / rel="next" (observed live).
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '400':
+          description: Invalid parameter. WordPress REST error envelope; observed code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized for the requested context. Observed codes `rest_forbidden`, `rest_cannot_view`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /wp/v2/posts/{id}:
+    get:
+      operationId: getPost
+      summary: Get a post by id
+      description: Retrieve one published XGS Energy post by its numeric id.
+      tags:
+      - Posts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope of the response. Anonymous callers may use view or embed only.
+      responses:
+        '200':
+          description: The requested record.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Not authorized for the requested context. Observed codes `rest_forbidden`, `rest_cannot_view`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Resource not found. Observed code `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      description: WordPress REST API error envelope (not RFC 9457 problem+json).
+      properties:
+        code:
+          type: string
+          description: Machine-readable error slug, e.g. rest_invalid_param.
+        message:
+          type: string
+          description: Human-readable message.
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+            params:
+              type: object
+            details:
+              type: object
+      required:
+      - code
+      - message

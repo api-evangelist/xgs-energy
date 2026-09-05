@@ -1,18 +1,283 @@
 aid: xgs-energy
 name: XGS Energy
-description: 'XGS Energy is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'XGS Energy is a next-generation geothermal power developer founded in 2008 and headquartered in Palo
+  Alto, California, formerly Geothermic Solution. Its patented Thermal Reach Enhancement technology packs a thermally
+  conductive material around a closed-loop wellbore so heat is drawn from the surrounding rock without relying on
+  natural permeability or produced water, siting geothermal in geology conventional hydrothermal and EGS cannot
+  use. It is developing a 150 MW round-the-clock project in New Mexico with Meta and utility PNM, and in 2025 acquired
+  drilling firm Capuano Engineering. XGS Energy is an energy infrastructure developer, not a software vendor: it
+  publishes no developer program, product API, SDKs or API documentation. The only machine-readable interface it
+  exposes is the WordPress REST content API behind www.xgsenergy.com, captured here for discovery — anonymously
+  readable, read-only, and undocumented by the company.'
 url: https://raw.githubusercontent.com/api-evangelist/xgs-energy/refs/heads/main/apis.yml
+image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-04'
 modified: '2026-09-04'
 tags:
 - Company
-apis: []
+- Energy
+- Geothermal
+- Renewable Energy
+- Clean Energy
+- Power Generation
+- Energy Infrastructure
+- Data Center Power
+- Climate Tech
+- Content
+apis:
+- aid: xgs-energy:xgs-energy-posts-api
+  name: XGS Energy Posts API
+  description: Public, unauthenticated read access to the XGS Energy news and insights archive via the WordPress
+    core REST API. Verified live at 108 published posts on 2026-09-04.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Posts
+  - Content
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-posts-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-posts-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-pages-api
+  name: XGS Energy Pages API
+  description: Public, unauthenticated read access to the static marketing and policy pages of xgsenergy.com. Verified
+    live at 8 published pages on 2026-09-04.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Pages
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-pages-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-pages-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-media-api
+  name: XGS Energy Media API
+  description: Public, unauthenticated read access to the media library behind xgsenergy.com. Verified live at 182
+    attachments on 2026-09-04.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Media
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-media-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-media-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-search-api
+  name: XGS Energy Search API
+  description: Public, unauthenticated cross-content search over xgsenergy.com, returning lightweight id / title
+    / url / type / subtype records. Verified live at 127 searchable objects on 2026-09-04.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Search
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-search-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-search-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-categories-api
+  name: XGS Energy Categories API
+  description: Public, unauthenticated access to the post categories that classify the XGS Energy news archive.
+    Verified live at 4 categories on 2026-09-04.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Categories
+  - Taxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-categories-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-categories-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-tags-api
+  name: XGS Energy Tags API
+  description: Public, unauthenticated access to the post tags applied to the XGS Energy news archive. Verified
+    live at 1 tag on 2026-09-04.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Tags
+  - Taxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-tags-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-tags-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-discovery-api
+  name: XGS Energy Discovery API
+  description: Public, unauthenticated discovery metadata for xgsenergy.com — the self-describing route index (266
+    routes across 21 namespaces at capture), the registered content types, taxonomies and publication statuses.
+    This is the surface that makes the rest of the API machine-readable in the absence of any published documentation.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - Discovery
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-discovery-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-discovery-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
+- aid: xgs-energy:xgs-energy-oembed-api
+  name: XGS Energy oEmbed API
+  description: Public oEmbed 1.0 provider endpoint for xgsenergy.com URLs, returning embeddable rich metadata —
+    provider, author, title, dimensions and iframe HTML — for any post or page.
+  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+  humanURL: https://www.xgsenergy.com/wp-json/
+  baseURL: https://www.xgsenergy.com/wp-json
+  tags:
+  - oEmbed
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/xgs-energy-oembed-api-openapi.yml
+  - type: Overlay
+    url: overlays/xgs-energy-oembed-api-overlay.yaml
+  - type: Authentication
+    url: authentication/xgs-energy-authentication.yml
+  - type: ErrorCatalog
+    url: errors/xgs-energy-problem-types.yml
+  - type: Conventions
+    url: conventions/xgs-energy-conventions.yml
+  - type: DataModel
+    url: data-model/xgs-energy-data-model.yml
+  - type: Conformance
+    url: conformance/xgs-energy-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/xgs-energy-lifecycle.yml
+  - type: RateLimits
+    url: rate-limits/xgs-energy-rate-limits.yml
+  - type: AgenticAccess
+    url: agentic-access/xgs-energy-agentic-access.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +285,47 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.xgsenergy.com/
+- type: About
+  url: https://www.xgsenergy.com/team/
+- type: Blog
+  url: https://www.xgsenergy.com/news-and-insights/
+- type: BlogRSS
+  url: https://www.xgsenergy.com/news-and-insights/feed/
+- type: Careers
+  url: https://www.xgsenergy.com/careers/
+- type: Contact
+  url: https://www.xgsenergy.com/contact/
+- type: Support
+  url: https://www.xgsenergy.com/contact/
+- type: TermsOfService
+  url: https://www.xgsenergy.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.xgsenergy.com/privacy-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/xgs-energy
+- type: Packages
+  url: packages/xgs-energy-packages.yml
+- type: X-MCPServerCandidate
+  url: mcp/xgs-energy-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/xgs-energy-tool-crosswalk.yml
+- type: LLMsTxt
+  url: llms/xgs-energy-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/xgs-energy-agentic-access.yml
+- type: DomainSecurity
+  url: security/xgs-energy-domain-security.yml
+- type: Plans
+  url: plans/xgs-energy-plans-pricing.yml
+- type: Conformance
+  url: conformance/xgs-energy-conformance.yml
+- type: Lifecycle
+  url: lifecycle/xgs-energy-lifecycle.yml
+x-enrichment:
+  date: '2026-09-04'
+  status: enriched
+  artifacts_added: 35
+  pass: local-v3

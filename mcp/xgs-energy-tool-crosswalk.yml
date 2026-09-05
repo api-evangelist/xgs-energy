@@ -1,0 +1,138 @@
+generated: '2026-09-04'
+method: derived
+source: mcp/xgs-energy-mcp.yml + openapi/
+description: Binding between the candidate MCP tool set and the OpenAPI operations that back it. Both sides
+  are API Evangelist artifacts — XGS Energy operates no MCP server and publishes no OpenAPI — so there is no
+  provider surface divergence to record. The useful finding is the gap between the 266 routes the live host
+  actually registers and the 17 that are anonymously usable and therefore documented.
+surfaces:
+  openapi:
+    files: 8
+    operations: 17
+    gated: false
+    note: Derived from the host's own self-describing route index; every documented operation was verified
+      anonymously readable.
+  mcp:
+    url: null
+    gated: null
+    note: No server exists. tools/list was never reachable; the tool set is candidate.
+  graphql:
+    endpoint: null
+    note: No GraphQL surface. https://www.xgsenergy.com/graphql -> 404 and no graphql namespace in the 266-route
+      index.
+coverage:
+  tools_named: 17
+  tools_bound: 17
+  tools_unbound: 0
+  mcp_only: 0
+  rest_ops_total: 17
+  rest_ops_with_tool: 17
+  live_routes_on_host: 266
+  live_namespaces_on_host: 21
+  live_routes_documented: 17
+  binding_confidence: high
+crosswalk:
+- tool: list_posts
+  category: content
+  rest:
+  - listPosts
+  binding: rest
+  confidence: high
+- tool: get_post
+  category: content
+  rest:
+  - getPost
+  binding: rest
+  confidence: high
+- tool: list_pages
+  category: content
+  rest:
+  - listPages
+  binding: rest
+  confidence: high
+- tool: get_page
+  category: content
+  rest:
+  - getPage
+  binding: rest
+  confidence: high
+- tool: list_media
+  category: media
+  rest:
+  - listMedia
+  binding: rest
+  confidence: high
+- tool: get_media_item
+  category: media
+  rest:
+  - getMediaItem
+  binding: rest
+  confidence: high
+- tool: search_site
+  category: search
+  rest:
+  - search
+  binding: rest
+  confidence: high
+- tool: list_categories
+  category: taxonomy
+  rest:
+  - listCategories
+  binding: rest
+  confidence: high
+- tool: get_category
+  category: taxonomy
+  rest:
+  - getCategory
+  binding: rest
+  confidence: high
+- tool: list_tags
+  category: taxonomy
+  rest:
+  - listTags
+  binding: rest
+  confidence: high
+- tool: get_tag
+  category: taxonomy
+  rest:
+  - getTag
+  binding: rest
+  confidence: high
+- tool: get_route_index
+  category: discovery
+  rest:
+  - getRouteIndex
+  binding: rest
+  confidence: high
+- tool: get_namespace_index
+  category: discovery
+  rest:
+  - getCoreNamespaceIndex
+  binding: rest
+  confidence: high
+- tool: list_content_types
+  category: discovery
+  rest:
+  - listContentTypes
+  binding: rest
+  confidence: high
+- tool: list_taxonomies
+  category: discovery
+  rest:
+  - listTaxonomies
+  binding: rest
+  confidence: high
+- tool: list_statuses
+  category: discovery
+  rest:
+  - listStatuses
+  binding: rest
+  confidence: high
+- tool: get_oembed
+  category: metadata
+  rest:
+  - getOEmbed
+  binding: rest
+  confidence: high
+mcp_only: []
+rest_only: []

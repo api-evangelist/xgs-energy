@@ -1,0 +1,38 @@
+generated: '2026-09-04'
+method: derived
+source: openapi/ + https://www.xgsenergy.com/wp-json/ + site probes 2026-09-04
+versioning:
+  scheme: namespace-in-path
+  current:
+  - wp/v2
+  - oembed/1.0
+  policy_published: false
+  detail: Version is carried in the URL namespace. XGS Energy publishes no versioning policy; the versions
+    are WordPress core's.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  detail: No Deprecation or Sunset header was observed and no deprecation policy is published. No pointer of
+    type Deprecation is emitted.
+status_page:
+  published: false
+  detail: No status.xgsenergy.com, no statuspage.io / instatus / betteruptime page, and no status link anywhere
+    on the site. No pointer of type StatusPage is emitted.
+sla:
+  published: false
+  detail: No SLA. There is no commercial API product.
+changelog:
+  published: false
+  detail: No API changelog. The news archive at /news-and-insights/ is corporate news, not a release log.
+support:
+  channel: web form
+  url: https://www.xgsenergy.com/contact/
+  developer_support: false
+stability:
+  assessment: incidental
+  detail: This surface is a side-effect of the corporate website's CMS, not a product. It can change or disappear
+    with any theme, plugin or platform change and carries no commitment of any kind. Consumers should treat
+    it as unstable.

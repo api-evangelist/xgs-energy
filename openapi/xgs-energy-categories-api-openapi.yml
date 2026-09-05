@@ -1,0 +1,240 @@
+# generated: '2026-09-04'
+# method: derived
+# source: https://www.xgsenergy.com/wp-json/ (live route index, probed 2026-09-04)
+openapi: 3.1.0
+info:
+  title: XGS Energy Categories API
+  version: wp/v2
+  description: Public read-only access to xgsenergy.com post categories.
+  contact:
+    name: XGS Energy
+    url: https://www.xgsenergy.com/contact/
+  x-provenance:
+    generated: '2026-09-04'
+    method: derived
+    source: https://www.xgsenergy.com/wp-json/ (live route index, probed 2026-09-04)
+    note: Derived from the self-describing WordPress REST route index served by XGS Energy at https://www.xgsenergy.com/wp-json/.
+      Parameters, types, defaults and enums are copied from that document; response codes, headers and
+      error codes were observed on live anonymous requests on 2026-09-04. Nothing here is invented. XGS
+      Energy publishes no OpenAPI of its own.
+servers:
+- url: https://www.xgsenergy.com/wp-json
+  description: XGS Energy WordPress REST API (www.xgsenergy.com)
+tags:
+- name: Categories
+paths:
+  /wp/v2/categories:
+    get:
+      operationId: listCategories
+      summary: List post categories
+      description: Anonymous listing of the post categories used on xgsenergy.com. Verified live at 4
+        categories on 2026-09-04.
+      tags:
+      - Categories
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+        description: Ensure result set excludes specific IDs.
+      - name: hide_empty
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to hide terms not assigned to any posts.
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+        description: Limit result set to specific IDs.
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+        description: Order sort attribute ascending or descending.
+      - name: orderby
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - id
+          - include
+          - name
+          - slug
+          - include_slugs
+          - term_group
+          - description
+          - count
+          default: name
+        description: Sort collection by term attribute.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: parent
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Limit result set to terms assigned to a specific parent.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: post
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Limit result set to terms assigned to a specific post.
+      - name: search
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: slug
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Limit result set to terms with one or more specific slugs.
+      responses:
+        '200':
+          description: A page of records.
+          headers:
+            X-WP-Total:
+              description: Total records matching the query (observed live).
+              schema:
+                type: integer
+            X-WP-TotalPages:
+              description: Total pages at the current per_page (observed live).
+              schema:
+                type: integer
+            Link:
+              description: RFC 8288 pagination links, rel="prev" / rel="next" (observed live).
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '400':
+          description: Invalid parameter. WordPress REST error envelope; observed code `rest_invalid_param`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authorized for the requested context. Observed codes `rest_forbidden`, `rest_cannot_view`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /wp/v2/categories/{id}:
+    get:
+      operationId: getCategory
+      summary: Get a category by id
+      description: Retrieve one category term.
+      tags:
+      - Categories
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope of the response. Anonymous callers may use view or embed only.
+      responses:
+        '200':
+          description: The requested record.
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Not authorized for the requested context. Observed codes `rest_forbidden`, `rest_cannot_view`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Resource not found. Observed code `rest_post_invalid_id`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      description: WordPress REST API error envelope (not RFC 9457 problem+json).
+      properties:
+        code:
+          type: string
+          description: Machine-readable error slug, e.g. rest_invalid_param.
+        message:
+          type: string
+          description: Human-readable message.
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+            params:
+              type: object
+            details:
+              type: object
+      required:
+      - code
+      - message

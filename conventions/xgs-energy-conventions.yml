@@ -1,0 +1,95 @@
+generated: '2026-09-04'
+method: derived
+source: openapi/ (derived from https://www.xgsenergy.com/wp-json/) + live response headers observed 2026-09-04
+provider: XGS Energy
+auth_style:
+  style: none
+  detail: Anonymous read. See authentication/xgs-energy-authentication.yml.
+idempotency:
+  coverage: none
+  mechanism: none
+  header: null
+  detail: The public surface exposes no mutating operation, so no replay-protection mechanism is published
+    or needed. Write methods exist in the underlying WordPress route index but every one of them is authentication-gated
+    and none is documented for third-party use.
+  source: https://www.xgsenergy.com/wp-json/
+reversibility:
+  grade: na
+  detail: 'Read-only surface: there is no write, so there is nothing to reverse. No cancel/refund/void/undo/restore
+    operation exists and none is needed.'
+  write_surfaces: []
+dry_run_mode:
+  supported: na
+  detail: No write surface.
+pagination:
+  style: page-number
+  params:
+  - name: page
+    default: 1
+  - name: per_page
+    default: 10
+    min: 1
+    max: 100
+  - name: offset
+  response_headers:
+  - X-WP-Total
+  - X-WP-TotalPages
+  link_header: RFC 8288 Link header with rel="prev" and rel="next"
+  cors_exposed:
+  - X-WP-Total
+  - X-WP-TotalPages
+  - Link
+  evidence: 'GET /wp-json/wp/v2/posts?per_page=2&page=2 -> 200, x-wp-total: 108, x-wp-totalpages: 54, link:
+    rel=prev/next'
+field_selection:
+  supported: true
+  params:
+  - _fields
+  - _embed
+  - context
+  detail: WordPress core supports _fields for sparse fieldsets, _embed for inlining linked resources, and context=view|embed
+    to switch response shape. context=edit requires authentication.
+ordering:
+  params:
+  - order
+  - orderby
+  detail: order is asc|desc; orderby varies per collection and is enumerated in each OpenAPI.
+filtering:
+  detail: Per-collection query filters copied verbatim from the route index — date windows (after/before/modified_after/modified_before),
+    taxonomy filters (categories/tags with _exclude siblings), include/exclude id lists, slug, search and search_columns.
+request_id_tracing:
+  supported: false
+  detail: No request-id header is returned. Cloudflare cf-ray is present but is edge infrastructure, not a
+    provider trace id.
+versioning:
+  style: namespace-in-path
+  current: wp/v2
+  detail: Version lives in the path namespace (/wp/v2, /oembed/1.0). See lifecycle/.
+error_envelope:
+  format: wordpress-rest
+  shape:
+    code: string
+    message: string
+    data:
+      status: integer
+      params: object
+      details: object
+  rfc9457: false
+  detail: Not application/problem+json. See errors/xgs-energy-problem-types.yml.
+rate_limit_signaling:
+  published: false
+  headers: []
+  detail: No X-RateLimit-* or RateLimit-* headers observed. See rate-limits/.
+caching:
+  cache_control: max-age=600, must-revalidate
+  edge: WP Engine origin behind Cloudflare
+  headers:
+  - 'x-cacheable: SHORT'
+  - cf-cache-status
+  - last-modified
+content_type: application/json; charset=UTF-8
+cross_links:
+  errors: errors/xgs-energy-problem-types.yml
+  lifecycle: lifecycle/xgs-energy-lifecycle.yml
+  authentication: authentication/xgs-energy-authentication.yml
+  rate_limits: rate-limits/xgs-energy-rate-limits.yml

@@ -64,5 +64,25 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-XGS Energy is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+XGS Energy is a next-generation geothermal power developer founded in 2008 and headquartered in Palo
+Alto, California, formerly known as Geothermic Solution. Its patented Thermal Reach Enhancement (TRE)
+technology packs a thermally conductive material around a closed-loop wellbore so heat is drawn from
+the surrounding rock without relying on natural permeability or produced water, which lets geothermal
+be sited in geology that conventional hydrothermal and EGS projects cannot use. The company is
+developing a 150 MW round-the-clock project in New Mexico with Meta and utility PNM, and in 2025
+acquired the geothermal drilling services firm Capuano Engineering.
+
+## API surface
+
+XGS Energy is an energy infrastructure developer, not a software vendor. It publishes **no developer
+program, no product API, no SDKs and no API documentation**. Probed 2026-09-04:
+`/developers` 404, `/api` 404, `/llms.txt` 404, `/.well-known/security.txt` 404,
+`/.well-known/agent-card.json` 404, `/.well-known/api-catalog` 404, `github.com/xgsenergy` 404.
+
+The only machine-readable interface it exposes is the **WordPress REST content API** behind its
+corporate website at `https://www.xgsenergy.com/wp-json` — anonymous, read-only, undocumented by the
+company, and incidental to the site rather than an offered product. It is captured here for discovery
+purposes only, and should be treated as unstable.
+
+- Website: https://www.xgsenergy.com/
+- Route index: https://www.xgsenergy.com/wp-json/

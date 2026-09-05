@@ -1,0 +1,48 @@
+generated: '2026-09-04'
+method: probed
+source: https://www.xgsenergy.com/wp-json/
+provider: XGS Energy
+surface: WordPress REST API behind www.xgsenergy.com
+summary: The entire public surface is anonymous and read-only. Every collection and item route captured in
+  openapi/ returned 200 to an unauthenticated GET on 2026-09-04. No API key, token, OAuth flow or signup exists
+  — there is no developer program to sign up to.
+schemes:
+- id: anonymous
+  type: none
+  applies_to: all GET routes captured in openapi/
+  description: 'No credential is sent or required. Verified live: GET /wp/v2/posts, /pages, /media, /search,
+    /categories, /tags, /types, /taxonomies and /oembed/1.0/embed all returned 200 anonymously.'
+  evidence: https://www.xgsenergy.com/wp-json/wp/v2/posts?per_page=1 -> 200
+- id: application-passwords
+  type: http
+  scheme: basic
+  applies_to: write routes and privileged read contexts (not part of the public surface)
+  description: WordPress Application Passwords, advertised by the provider in the `authentication` block of
+    the route index. Credentials are issued from the site's own wp-admin authorization screen, which is an
+    administrator function, not a developer onboarding flow. No public route is documented as writable.
+  authorization_endpoint: https://www.xgsenergy.com/wp-admin/authorize-application.php
+  evidence: https://www.xgsenergy.com/wp-json/
+gated_surfaces:
+- path: /wp-json/wp/v2/settings
+  status: 401
+  code: rest_forbidden
+- path: /wp-json/wp/v2/menus
+  status: 401
+  code: rest_cannot_view
+- path: /wp-json/wp-abilities/v1/abilities
+  status: 401
+  code: rest_forbidden
+- path: /wp-json/hfe/v1/mcp-abilities
+  status: 403
+  code: uae_rest_not_allowed
+- path: /wp-json/contact-form-7/v1/contact-forms
+  status: 403
+  code: wpcf7_forbidden
+oauth2: false
+openid_connect: false
+mtls: false
+api_keys: false
+notes:
+- No /.well-known/openid-configuration or /.well-known/oauth-authorization-server is served (both 404, see
+  well-known/).
+- There is no signup, console, or key issuance page anywhere on xgsenergy.com.

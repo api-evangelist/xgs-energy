@@ -1,0 +1,20 @@
+generated: '2026-09-04'
+method: probed
+source: live response headers from https://www.xgsenergy.com/wp-json/wp/v2/posts observed 2026-09-04
+limit_count: 0
+published: false
+rate_limits: []
+response_headers:
+  rate_limit_headers_observed: []
+  retry_after: false
+  detail: No X-RateLimit-*, RateLimit-* or Retry-After header was returned on any observed response.
+exhaustion_status: null
+edge_controls:
+  detail: The origin sits behind Cloudflare and WP Engine. Edge protections almost certainly exist (a __cf_bm
+    bot-management cookie is set on every response) but no limit is published, no counter is exposed, and none
+    was deliberately triggered.
+  evidence:
+  - 'set-cookie: __cf_bm ...'
+  - 'x-cacheable: SHORT'
+  - 'cache-control: max-age=600, must-revalidate'
+note: 'An honest zero: XGS Energy documents no rate limits because it documents no API.'

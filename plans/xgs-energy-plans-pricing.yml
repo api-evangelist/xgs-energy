@@ -1,0 +1,13 @@
+generated: '2026-09-04'
+method: searched
+source: https://www.xgsenergy.com/ (full site walk 2026-09-04; no pricing page exists)
+plan_count: 0
+plans: []
+pricing_page: null
+free_tier:
+  available: true
+  detail: The content API is anonymous and free to call, but this is an unpriced side-effect of the website,
+    not an offered plan.
+note: 'XGS Energy sells geothermal power projects, not API access. There is no pricing page, no plans page,
+  no signup, and no metered or commercial API product. Probed: https://www.xgsenergy.com/ (200), /developers
+  (404), /api (404).'
