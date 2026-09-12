@@ -1,0 +1,21 @@
+{
+  "repo": "xgs-energy",
+  "feeds": [
+    {
+      "source": "https://www.xgsenergy.com/team/",
+      "feed_url": "https://www.xgsenergy.com/team/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.xgsenergy.com/news-and-insights/",
+      "feed_url": "https://www.xgsenergy.com/news-and-insights/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-06T19:17:18Z"
+}
