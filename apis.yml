@@ -30,7 +30,8 @@ tags:
 apis:
 - aid: xgs-energy:xgs-energy-posts-api
   name: XGS Energy Posts API
-  description: Public, unauthenticated read access to the XGS Energy news and insights archive via the WordPress
+  description: >-
+    Public, unauthenticated read access to the XGS Energy news and insights archive via the WordPress
     core REST API. Verified live at 108 published posts on 2026-09-04.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
@@ -62,7 +63,8 @@ apis:
     url: agentic-access/xgs-energy-agentic-access.yml
 - aid: xgs-energy:xgs-energy-pages-api
   name: XGS Energy Pages API
-  description: Public, unauthenticated read access to the static marketing and policy pages of xgsenergy.com. Verified
+  description: >-
+    Public, unauthenticated read access to the static marketing and policy pages of xgsenergy.com. Verified
     live at 8 published pages on 2026-09-04.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
@@ -93,7 +95,8 @@ apis:
     url: agentic-access/xgs-energy-agentic-access.yml
 - aid: xgs-energy:xgs-energy-media-api
   name: XGS Energy Media API
-  description: Public, unauthenticated read access to the media library behind xgsenergy.com. Verified live at 182
+  description: >-
+    Public, unauthenticated read access to the media library behind xgsenergy.com. Verified live at 182
     attachments on 2026-09-04.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
@@ -124,7 +127,8 @@ apis:
     url: agentic-access/xgs-energy-agentic-access.yml
 - aid: xgs-energy:xgs-energy-search-api
   name: XGS Energy Search API
-  description: Public, unauthenticated cross-content search over xgsenergy.com, returning lightweight id / title
+  description: >-
+    Public, unauthenticated cross-content search over xgsenergy.com, returning lightweight id / title
     / url / type / subtype records. Verified live at 127 searchable objects on 2026-09-04.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
@@ -155,8 +159,9 @@ apis:
     url: agentic-access/xgs-energy-agentic-access.yml
 - aid: xgs-energy:xgs-energy-categories-api
   name: XGS Energy Categories API
-  description: Public, unauthenticated access to the post categories that classify the XGS Energy news archive.
-    Verified live at 4 categories on 2026-09-04.
+  description: >-
+    Public, unauthenticated access to the post categories that classify the XGS Energy news archive. Verified
+    live at 4 categories on 2026-09-04.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
   baseURL: https://www.xgsenergy.com/wp-json
@@ -186,8 +191,9 @@ apis:
     url: agentic-access/xgs-energy-agentic-access.yml
 - aid: xgs-energy:xgs-energy-tags-api
   name: XGS Energy Tags API
-  description: Public, unauthenticated access to the post tags applied to the XGS Energy news archive. Verified
-    live at 1 tag on 2026-09-04.
+  description: >-
+    Public, unauthenticated access to the post tags applied to the XGS Energy news archive. Verified live
+    at 1 tag on 2026-09-04.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
   baseURL: https://www.xgsenergy.com/wp-json
@@ -217,9 +223,11 @@ apis:
     url: agentic-access/xgs-energy-agentic-access.yml
 - aid: xgs-energy:xgs-energy-discovery-api
   name: XGS Energy Discovery API
-  description: Public, unauthenticated discovery metadata for xgsenergy.com — the self-describing route index (266
-    routes across 21 namespaces at capture), the registered content types, taxonomies and publication statuses.
-    This is the surface that makes the rest of the API machine-readable in the absence of any published documentation.
+  description: >-
+    Public, unauthenticated discovery metadata for xgsenergy.com — the self-describing route index (266
+    routes across 21 namespaces at capture), the registered content types, taxonomies and publication
+    statuses. This is the surface that makes the rest of the API machine-readable in the absence of any
+    published documentation.
   image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
   humanURL: https://www.xgsenergy.com/wp-json/
   baseURL: https://www.xgsenergy.com/wp-json
@@ -247,21 +255,16 @@ apis:
     url: rate-limits/xgs-energy-rate-limits.yml
   - type: AgenticAccess
     url: agentic-access/xgs-energy-agentic-access.yml
-- aid: xgs-energy:xgs-energy-oembed-api
-  name: XGS Energy oEmbed API
-  description: Public oEmbed 1.0 provider endpoint for xgsenergy.com URLs, returning embeddable rich metadata —
-    provider, author, title, dimensions and iframe HTML — for any post or page.
-  image: https://www.xgsenergy.com/wp-content/uploads/2024/08/cropped-favicon-192x192.png
+- aid: xgs-energy:xgs-energy-o-embed-api
+  name: XGS Energy o Embed API
+  description: The o Embed API from XGS Energy — 1 operation(s) for o embed.
   humanURL: https://www.xgsenergy.com/wp-json/
   baseURL: https://www.xgsenergy.com/wp-json
   tags:
-  - oEmbed
-  - Metadata
+  - o Embed
   properties:
   - type: OpenAPI
-    url: openapi/xgs-energy-oembed-api-openapi.yml
-  - type: Overlay
-    url: overlays/xgs-energy-oembed-api-overlay.yaml
+    url: openapi/xgs-energy-o-embed-api-openapi.yml
   - type: Authentication
     url: authentication/xgs-energy-authentication.yml
   - type: ErrorCatalog
@@ -284,6 +287,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/xgs-energy-oembed-api-overlay.yaml
 - type: Website
   url: https://www.xgsenergy.com/
 - type: About
