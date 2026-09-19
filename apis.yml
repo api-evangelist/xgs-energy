@@ -261,6 +261,8 @@ apis:
   humanURL: https://www.xgsenergy.com/wp-json/
   baseURL: https://www.xgsenergy.com/wp-json
   tags:
+  - oEmbed
+  tags_raw:
   - o Embed
   properties:
   - type: OpenAPI
