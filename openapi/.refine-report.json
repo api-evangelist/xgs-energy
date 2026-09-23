@@ -1,0 +1,32 @@
+{
+  "provider": "xgs-energy",
+  "sources": [
+    "xgs-energy-categories-api-openapi.yml",
+    "xgs-energy-discovery-api-openapi.yml",
+    "xgs-energy-media-api-openapi.yml",
+    "xgs-energy-o-embed-api-openapi.yml",
+    "xgs-energy-pages-api-openapi.yml",
+    "xgs-energy-posts-api-openapi.yml",
+    "xgs-energy-search-api-openapi.yml",
+    "xgs-energy-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "xgs-energy-categories-api-openapi.yml",
+    "xgs-energy-discovery-api-openapi.yml",
+    "xgs-energy-media-api-openapi.yml",
+    "xgs-energy-o-embed-api-openapi.yml",
+    "xgs-energy-pages-api-openapi.yml",
+    "xgs-energy-posts-api-openapi.yml",
+    "xgs-energy-search-api-openapi.yml",
+    "xgs-energy-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [
+    "no openapi/_original/ archive: this run re-split PREVIOUSLY REFINED output, so any base URL it carries is inherited from an earlier pass rather than read from a document the provider published"
+  ],
+  "notes": [
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}
