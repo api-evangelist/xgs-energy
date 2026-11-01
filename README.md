@@ -64,25 +64,112 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-XGS Energy is a next-generation geothermal power developer founded in 2008 and headquartered in Palo
-Alto, California, formerly known as Geothermic Solution. Its patented Thermal Reach Enhancement (TRE)
-technology packs a thermally conductive material around a closed-loop wellbore so heat is drawn from
-the surrounding rock without relying on natural permeability or produced water, which lets geothermal
-be sited in geology that conventional hydrothermal and EGS projects cannot use. The company is
-developing a 150 MW round-the-clock project in New Mexico with Meta and utility PNM, and in 2025
-acquired the geothermal drilling services firm Capuano Engineering.
+XGS Energy is a next-generation geothermal power developer founded in 2008 and headquartered in Palo Alto, California, formerly Geothermic Solution. Its patented Thermal Reach Enhancement technology packs a thermally conductive material around a closed-loop wellbore so heat is drawn from the surrounding rock without relying on natural permeability or produced water, siting geothermal in geology conventional hydrothermal and EGS cannot use. It is developing a 150 MW round-the-clock project in New Mexico with Meta and utility PNM, and in 2025 acquired drilling firm Capuano Engineering. XGS Energy is an energy infrastructure developer, not a software vendor: it publishes no developer program, product API, SDKs or API documentation. The only machine-readable interface it exposes is the WordPress REST content API behind www.xgsenergy.com, captured here for discovery — anonymously readable, read-only, and undocumented by the company.
 
-## API surface
+**Areas:** Company · Energy · Geothermal · Renewable Energy · Clean Energy · Power Generation · Energy Infrastructure · Data Center Power · Climate Tech
 
-XGS Energy is an energy infrastructure developer, not a software vendor. It publishes **no developer
-program, no product API, no SDKs and no API documentation**. Probed 2026-09-04:
-`/developers` 404, `/api` 404, `/llms.txt` 404, `/.well-known/security.txt` 404,
-`/.well-known/agent-card.json` 404, `/.well-known/api-catalog` 404, `github.com/xgsenergy` 404.
+## XGS Energy on APIs.io
 
-The only machine-readable interface it exposes is the **WordPress REST content API** behind its
-corporate website at `https://www.xgsenergy.com/wp-json` — anonymous, read-only, undocumented by the
-company, and incidental to the site rather than an offered product. It is captured here for discovery
-purposes only, and should be treated as unstable.
+Everything profiled for XGS Energy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/xgs-energy/](https://apis.io/providers/xgs-energy/)** — or go straight to one of the APIs or properties below.
 
-- Website: https://www.xgsenergy.com/
-- Route index: https://www.xgsenergy.com/wp-json/
+### APIs (1)
+
+- [XGS Energy Website (WordPress REST)](https://apis.io/apis/xgs-energy/xgsenergy-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the XGS Energy website at www.xgsenergy.com: the route index of the site's content management system, catalogued…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [xgs-energy](https://apis.io/servers/xgs-energy/xgs-energy/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Xgs Energy Agentic Access](https://apis.io/agentic-access/xgs-energy/xgs-energy-agentic-access/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Xgs Energy Authentication](https://apis.io/security/xgs-energy/xgs-energy-authentication/)
+- [Xgs Energy Domain Security](https://apis.io/security/xgs-energy/xgs-energy-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Xgs Energy Plans Pricing](https://apis.io/plans/xgs-energy/xgs-energy-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Xgs Energy Rate Limits](https://apis.io/rate-limits/xgs-energy/xgs-energy-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.xgsenergy.com/)
+- [Support](https://www.xgsenergy.com/contact/)
+- [Blog](https://www.xgsenergy.com/news-and-insights/)
+- [Terms of service](https://www.xgsenergy.com/terms-of-use/)
+- [Privacy policy](https://www.xgsenergy.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 18.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 30.4 |
+| Access clarity | 21.1 |
+
+**Agent readiness 10.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/xgs-energy/](https://apis.io/providers/xgs-energy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for XGS Energy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/xgs-energy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
